@@ -23,6 +23,31 @@ using namespace std;
 //  SECTION 1 – WARM-UP  (~ 5 min)
 //  Goal: quickly recall variables, cin, cout, and arithmetic.
 // ============================================================
+double celsiusToFahrenheit(double c){
+    return (c* 9.0 / 5.0) + 32;
+}
+bool isPrime(int n){
+    if(n<=1) return false;
+    for(int i=2; i<=sqrt((double)n);i++){
+        if(n%i==0) return false;
+    }
+    return true;
+}
+int maxOfThree(int a, int b, int c){
+    int maxValue =a;
+    if(b>maxValue) maxValue=b;
+    if(c>maxValue) maxValue=c;
+    return maxValue;
+}
+double average(double arr[], int size){
+    double sum=0.0;
+    for(int i=0;i<size;i++){
+        sum+=arr[i];
+    }
+    return sum/size;
+}
+
+
 
 int main()
 {
@@ -35,7 +60,11 @@ int main()
 
     double radius;
     const double PI = 3.14159;
-
+     cout<<"enter the radius";
+     cin>>radius;
+     double area =PI*radius*radius;
+     cout<<"result is"<<area<< endl;
+     
     cout << "=== Warm-up: Circle Area ===" << endl;
 
     // TODO: Ask the user to enter the radius
@@ -96,10 +125,13 @@ int main()
     cout << "\n=== Built-in Functions ===" << endl;
 
     // TODO: Print sqrt of val
+    cout<<sqrt(val)<< endl;
     // TODO: Print ceil of val
+    cout<<ceil(val)<< endl;
     // TODO: Print floor of val
+    cout<<floor(val)<<endl;
     // TODO: Print round of val
-
+    cout<<round(val)<< endl;
 
 
 
@@ -119,8 +151,11 @@ int main()
     // Test it by asking the user for a Celsius temperature,
     // calling your function, and printing the Fahrenheit result.
     // ----------------------------------------------------------
-
+  
     double celsius;
+     cout<<"enter temperature in celcius";
+     cin>>celsius;
+     cout<<celsius<<"c = "<< celsiusToFahrenheit(celsius)<<"f"<< endl;
     cout << "\n=== Temperature Converter ===" << endl;
 
     // TODO: Ask the user for a Celsius value and read it
@@ -140,14 +175,19 @@ int main()
     //
     // Ask the user for an integer and print whether it is prime.
     // ----------------------------------------------------------
-
+    
     int number;
     cout << "\n=== Prime Checker ===" << endl;
 
     // TODO: Ask the user for an integer and read it
     // TODO: Call isPrime and print "X is prime" or "X is not prime"
-
-
+     cout<<"enter an integer";
+     cin>>number;
+     if(isPrime(number)){
+         cout<< number<<"is prime"<< endl;
+         }else{
+             cout<<number<<"is not prime"<<endl;
+         }
 
 
     // ----------------------------------------------------------
@@ -165,7 +205,9 @@ int main()
 
     // TODO: Ask the user for three integers and read them
     // TODO: Call maxOfThree and print the result
-
+      cout<<"enter 3 integers";
+      cin>>x>>y>>z;
+      cout<<"maxımum= "<<maxOfThree(x,y,z)<<endl;
 
 
 
@@ -199,8 +241,15 @@ int main()
     // TODO: Read 5 values from the user into the array
     // TODO: Call average() and store the result
     // TODO: Print the average, sqrt of average, and rounded average
-
-
+      cout<<"enter"<<SIZE<<"numbers"<<endl;
+      for(int i=0;i<SIZE;i++){
+          cout<<"["<<i+1<<"]";
+          cin>>grades[i];
+      }
+double avg=average(grades,SIZE);
+cout<<"average      = "<<avg;
+cout<<"sqrt(average)     ="<<sqrt(avg);
+cout<<"round(2 decimals)   ="<<round(avg*100.0)/100.0<< endl;
 
 
     cout << "\n=== Lab Complete! ===" << endl;
